@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title">הוספת סרט חדש</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm"  (ngSubmit)="addMovie(f.valid)">
+      <div class="form-group">
+        <label for="MovieName">שם הסרט</label>
+        <input name="name" [(ngModel)]="movie.name"  type="text" class="form-control" id="MovieName" required>
+      </div>
+     
+      <div class="form-group">
+        <label for="MovieCategory">קטגוריה</label>
+        <input name="category" [(ngModel)]="movie.category" type="text" class="form-control" id="MovieCategory" required>
+      </div>
+
+      <div class="form-group">
+        <label for="MovieImbdLink" >קישור ל <a href="https://www.imdb.com/">imdb </a> </label>
+        <input name="imdbLink"  [(ngModel)]="movie.imdbLink" type="url" class="form-control" id="MovieImbdLink" required>
+      </div>
+
+      <div class="form-group">
+        <label for="MovieImg">כתובת תמונה</label>
+        <input name="img" [(ngModel)]="movie.img" type="url" class="form-control" id="MovieImg" required>
+      </div>
+      <button lass="btn btn-success">  הוסף סרט </button>
+    </form>
+    <span *ngIf="!f.valid "> יש למלא את כל השדות</span>
+    <span> {{msg}} </span>
+
+  </div>
+  <div class="modal-footer">
+
+    <button type="button" class="btn btn-warning" (click)="activeModal.close('Close click')"> סגור(ללא שמירה) </button>
+  </div>

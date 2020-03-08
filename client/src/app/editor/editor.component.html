@@ -1,0 +1,13 @@
+<main>
+
+<aside>
+    <div class="btnItem"> <p>  ברוך הבא {{user}} </p></div>
+    <div class="btnItem" (click)="open()"> <p>  הוספת סרט חדש </p> </div>
+    <div class="category" *ngFor="let cat of categories" (click)="loadMovies(cat)" > <p> {{cat}} </p>  </div>
+    <div class="btnItem" (click)="logOut()" > <p> יציאה  </p> </div>
+
+</aside>
+    <div class="editPanel">
+ <app-movie-item *ngFor="let movie of movies" (deletedItem)="reloadEditor()" [movie]="movie"></app-movie-item> 
+    </div>
+</main>
